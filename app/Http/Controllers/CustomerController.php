@@ -8,28 +8,30 @@ use GuzzleHttp\Client;
 
 class CustomerController extends Controller
 {
-     // const HOST = 'https://<Renderアプリ名>.onrender.com/' のように、最後に / は入れない。
-    const HOST = 'https://zipcloud.ibsnet.co.jp';
-
-    public function search($zipcode)
+    /**
+     * 郵便番号から住所を取得し、JSON形式でレスポンスを返す
+     */
+    public function search()
     {
-        $url = '/api/search?zipcode=' . $zipcode;
-        $method = 'GET';
 
-        // Client(接続する為のクラス)を生成
+        // 郵便番号検索APIを呼び出すためのURLを作成する
+        $url = 'http://zipcloud.ibsnet.co.jp/api/search?zipcode=' . 5750002;
+        $method = 'GET';
+        // GuzzleHttpクライアントを作成する
         $client = new Client();
         // 接続失敗時はnullを返すようにする
         try {
             // URLにアクセスした結果を変数$responseに代入
-            $response = $client->request($method, self::HOST . $url);
+            $response = $client->request($method, $url);
             // $responseのBodyを取得
             $body = $response->getBody();
             $result = json_decode($body, true);
         } catch (\Exception $e) {
             $result = null;
         }
-
-        return view('customers.address', compact('results'));
+        dump($result);
+        
+        return view('customers.search', compact('result'));
     }
     /**
      * Display a listing of the resource.

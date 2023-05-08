@@ -17,4 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::resource('customers', App\Http\Controllers\CustomerController::class);
+Route::get('/controller/search', [App\Http\Controllers\CustomerController::class, 'search']);
+
