@@ -28,7 +28,7 @@ class CustomerFactory extends Factory
             'mail_address' => $faker->email(),
             'post_code' => $faker->postcode(),
             'address' => $faker->address(),
-            'telephone_number' => $faker->phoneNumber(12),
+            'telephone_number' => $faker->phoneNumber(),
         ];
     
 }
