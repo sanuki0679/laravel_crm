@@ -33,7 +33,7 @@ class CustomerController extends Controller
         dump($result);
         // レスポンスをJSON形式で返す
         return response()->json($result);
-        
+        //return view('customers.create', compact('results'));
     }
     /**
      * Display a listing of the resource.

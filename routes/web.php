@@ -19,5 +19,5 @@ Route::get('/', function () {
 
 
 Route::resource('customers', App\Http\Controllers\CustomerController::class);
-Route::get('/controller/search', [App\Http\Controllers\CustomerController::class, 'search']);
+Route::get('/controller/search', [App\Http\Controllers\CustomerController::class, 'search'])->name('search');
 

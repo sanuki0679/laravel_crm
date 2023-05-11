@@ -4,11 +4,11 @@
 
 @section('content')
     <h1>郵便番号検索</h1>
-    <form action="{{ route('customers.search') }}" method="GET">
+    <form action="{{ route('search')}}" method="GET">
     @csrf
     <div class="form-group">
-        <label for="postal_code">郵便番号</label>
-        <input type="text" class="form-control" name="postal_code" id="postal_code" placeholder="郵便番号を入力してください">
+        <label for="post_code">郵便番号</label>
+        <input type="text" class="form-control" name="post_code" id="post_code" placeholder="郵便番号を入力してください">
     </div>
     <button type="submit" class="btn btn-primary">検索</button>
 </form>

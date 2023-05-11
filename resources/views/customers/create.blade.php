@@ -17,10 +17,10 @@
             <input type="text" name="mail_address" id="mail_address" value="{{ old('mail_address') }}">
         </div>
         <div>
-        <form action="{{ route('controller.search') }}" method="get">
+        <form action="{{ route('search') }}" method="get">
             <label for="post_code">郵便番号:</label>
-            <input type="text" name="post_code" id="post_code" value="{{ old('post_code') }}">
-        </div>
+            <input type="number" name="post_code" id="post_code" value="{{ old('post_code') }}">
+        </div><input type="submit" value="検索">
         <div>
         
             <label for="address">住所:</label>
