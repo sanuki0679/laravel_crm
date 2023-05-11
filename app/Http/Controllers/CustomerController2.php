@@ -13,10 +13,9 @@ class CustomerController extends Controller
      */
     public function search(Request $request)
     {
-        // 入力された郵便番号を取得する
-        $post_code = $request->input('post_code');
+
         // 郵便番号検索APIを呼び出すためのURLを作成する
-        $url = 'http://zipcloud.ibsnet.co.jp/api/search?zipcode=' . $post_code;
+        $url = 'http://zipcloud.ibsnet.co.jp/api/search?zipcode=' . $postal_code;
         $method = 'GET';
         // GuzzleHttpクライアントを作成する
         $client = new Client();
@@ -31,9 +30,8 @@ class CustomerController extends Controller
             $result = null;
         }
         dump($result);
-        // レスポンスをJSON形式で返す
-        return response()->json($result);
         
+        return view('customers.search', compact('result'));
     }
     /**
      * Display a listing of the resource.

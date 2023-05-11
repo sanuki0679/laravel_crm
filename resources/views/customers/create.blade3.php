@@ -17,19 +17,11 @@
             <input type="text" name="mail_address" id="mail_address" value="{{ old('mail_address') }}">
         </div>
         <div>
-        <form action="{{ route('controller.search') }}" method="get">
             <label for="post_code">郵便番号:</label>
-            <input type="text" name="post_code" id="post_code" value="{{ old('post_code') }}">
+            <input type="number" name="post_code" id="post_code" value="{{ old('post_code') }}">
         </div>
         <div>
-        
             <label for="address">住所:</label>
-            <ul>
-        @foreach ($result['results'] as $address)
-            <li>{{ $address['address1'] }}{{ $address['address2'] }}{{ $address['address3'] }}</li>
-        @endforeach
-            
-    </ul></form>
             <input type="text" name="address" id="address" value="{{ old('address') }}">
         </div>
         <div>
