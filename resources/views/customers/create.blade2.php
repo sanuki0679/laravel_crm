@@ -5,8 +5,8 @@
 @section('content')
     <h1>顧客情報登録</h1>
 
-    <form action="{{ route('customers.store') }}" method="post">
-        @csrf
+    @csrf
+    <form action="{{ route('search') }}" method="get">
         <div>
             <label for="name">顧客名:</label>
             <input type="text" name="name" id="name" value="{{ old('name') }}">
@@ -17,21 +17,30 @@
             <input type="text" name="mail_address" id="mail_address" value="{{ old('mail_address') }}">
         </div>
         <div>
+
             <label for="post_code">郵便番号:</label>
-            <input type="number" name="post_code" id="post_code" value="">
-        </div>
+            <input type="number" name="post_code" id="post_code" value="{{ old('post_code') }}">
+        </div><input type="submit" value="検索">
         <div>
+
             <label for="address">住所:</label>
+
             <input type="text" name="address" id="address" value="{{ old('address') }}">
         </div>
+        <ul>
+            @foreach ($result['results'] as $address)
+                <li>{{ $address['address1'] }}{{ $address['address2'] }}{{ $address['address3'] }}</li>
+            @endforeach
+        </ul>
         <div>
             <label for="telephone_number">電話番号:</label>
             <input type="text" name="telephone_number" id="telephone_number" value="{{ old('telephone_number') }}">
         </div>
         <div>
-            <input type="submit" value="登録">
+
+            
         </div>
     </form>
 
-    <a href="{{ route('customers.index') }}">一覧へ戻る</a>            
+    <a href="{{ route('customers.index') }}">一覧へ戻る</a>
 @endsection
