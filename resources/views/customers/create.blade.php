@@ -12,13 +12,16 @@
     </div>
     
     <button type="submit" class="btn btn-primary">検索</button>
-    <ul>
-        @foreach ($result ['results'] as $address)
-            <li>{{ $address['address1'] }}{{ $address['address2'] }}{{ $address['address3'] }}</li>
-        @endforeach
-    </ul>
-</form>
     
+</form>
+    <ul>
+            @foreach ($result['results'] as $address)
+                <li>{{ $address['address1'] }}{{ $address['address2'] }}{{ $address['address3'] }}</li>
+                @foreach ($result['results'] as $zipcode)
+                  <li>{{ $zipcode['zipcode'] }}</li>  
+                @endforeach
+            @endforeach
+        </ul>
 
 
 @endsection

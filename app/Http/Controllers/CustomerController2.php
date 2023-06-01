@@ -15,7 +15,7 @@ class CustomerController extends Controller
     {
 
         // 郵便番号検索APIを呼び出すためのURLを作成する
-        $url = 'http://zipcloud.ibsnet.co.jp/api/search?zipcode=' . $postal_code;
+        $url = 'http://zipcloud.ibsnet.co.jp/api/search?zipcode=' . $post_code;
         $method = 'GET';
         // GuzzleHttpクライアントを作成する
         $client = new Client();

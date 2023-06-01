@@ -30,10 +30,10 @@ class CustomerController extends Controller
         } catch (\Exception $e) {
             $result = null;
         }
-        dump($result);
+        
         // レスポンスをJSON形式で返す
         //return response()->json($result);
-        return view('customers.create', compact('results'));
+        return view('customers.create', compact('result'));
     }
     /**
      * Display a listing of the resource.
