@@ -5,6 +5,19 @@
 @section('content')
     <h1>顧客情報修正</h1>
 
+    @if ($errors->any())
+        <div class="error">
+            <p>
+                <b>{{ count($errors) }}件のエラーがあります。</b>
+            </p>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif    
+
     <form action="{{ route('customers.update',$customer) }}" method="post">
         @csrf
         @method('patch')

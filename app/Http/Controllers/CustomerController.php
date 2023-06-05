@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use App\Http\Requests\CustomerRequest;
 use GuzzleHttp\Client;
 
 class CustomerController extends Controller
@@ -29,6 +30,7 @@ class CustomerController extends Controller
             $result = json_decode($body, true);
         } catch (\Exception $e) {
             $result = null;
+            return view('customers.create', compact('result'));
         }
         
         // レスポンスをJSON形式で返す
@@ -63,7 +65,7 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CustomerRequest $request)
     {
         $customer = new Customer();
 
@@ -107,7 +109,7 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    public function update(CustomerRequest $request, Customer $customer)
     {
         $customer->name = $request->name;
         $customer->mail_address = $request->mail_address;

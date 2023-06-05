@@ -5,6 +5,18 @@
 @section('content')
     <h1>顧客情報登録</h1>
 
+    @if ($errors->any())
+        <div class="error">
+            <p>
+                <b>{{ count($errors) }}件のエラーがあります。</b>
+            </p>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif    
     
     <form action="{{ route('customers.store') }}" method="post">
     @csrf
@@ -26,13 +38,15 @@
         <div>
 
             <label for="post_code">郵便番号:</label>
+            
             <input type="number" name="post_code" id="post_code" value="{{ $zipcode['zipcode'] }}">
+            
         </div>
         <div>
 
             <label for="address">住所:</label>
             <input type="text" name="address" id="address" value="{{ $address['address1'] }}{{ $address['address2'] }}{{ $address['address3'] }}">
-            <!-- <input type="text" name="address" id="address" value="{{ old('address') }}"> -->
+            
         </div>
         
         <div>
