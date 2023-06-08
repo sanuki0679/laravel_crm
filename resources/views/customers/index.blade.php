@@ -3,7 +3,6 @@
 @section('title', '顧客情報一覧')
 
 @section('content')
-    
     <h1>顧客情報一覧</h1>
     <table>
         <thead>
@@ -28,7 +27,5 @@
         @endforeach
     </table>
     
-
-
     <a href="{{ route('customers.create') }}">create</a>
 @endsection

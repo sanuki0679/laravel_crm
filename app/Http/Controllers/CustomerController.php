@@ -33,9 +33,7 @@ class CustomerController extends Controller
             return view('customers.create', compact('result'));
         }
         
-        // レスポンスをJSON形式で返す
-        //return response()->json($result);
-        //return view('customers.create', compact('result'));
+        //var_dump($result);
         return view('customers.address', compact('result'));
     }
     /**
