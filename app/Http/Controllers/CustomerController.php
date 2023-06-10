@@ -30,10 +30,10 @@ class CustomerController extends Controller
             $result = json_decode($body, true);
         } catch (\Exception $e) {
             $result = null;
+            
             return view('customers.create', compact('result'));
         }
         
-        //var_dump($result);
         return view('customers.address', compact('result'));
     }
     /**

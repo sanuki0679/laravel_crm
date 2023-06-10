@@ -26,6 +26,6 @@
             </tr>
         @endforeach
     </table>
+    <button onclick="location.href='{{ route('customers.create') }}'">新規作成</button>
     
-    <a href="{{ route('customers.create') }}">create</a>
 @endsection

@@ -36,7 +36,8 @@
         </div>
         <div>
             <label for="address">住所:</label>
-            <input type="text" name="address" id="address" value="{{ old('address', $customer->address) }}">
+            <textarea name="address" id="address" rows="3">{{ old('address', $customer->address) }}</textarea>
+            
         </div>
         <div>
             <label for="telephone_number">電話番号:</label>
@@ -47,5 +48,5 @@
         </div>
     </form>
 
-    <a href="{{ route('customers.show', $customer) }}">詳細へ戻る</a>
+    <a href="{{ route('customers.show', $customer) }}" class="btn">詳細へ戻る</a>
 @endsection

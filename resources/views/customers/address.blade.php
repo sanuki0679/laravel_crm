@@ -45,8 +45,7 @@
         <div>
 
             <label for="address">住所:</label>
-            <input type="text" name="address" id="address" value="{{ $address['address1'] }}{{ $address['address2'] }}{{ $address['address3'] }}">
-            
+            <textarea name="address" id="address" rows="3">{{ $address['address1'] }}{{ $address['address2'] }}{{ $address['address3'] }}</textarea>
         </div>
         
         <div>
@@ -58,6 +57,6 @@
         <input type="submit" value="登録">
         </div>
     </form>
-
-    <a href="{{ route('customers.index') }}">一覧へ戻る</a>
+    <button onclick="location.href='{{ route('customers.index') }}'">一覧画面</button><br>
+    <button onclick="location.href='{{ route('customers.create') }}'">郵便番号検索画面</button>
 @endsection
