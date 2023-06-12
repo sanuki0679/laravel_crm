@@ -30,11 +30,12 @@ class CustomerController extends Controller
             $result = json_decode($body, true);
         } catch (\Exception $e) {
             $result = null;
-            
+
             return view('customers.create', compact('result'));
         }
-        
-        return view('customers.address', compact('result'));
+        $address = $result['results'][0];
+        $zipcode = $result['results'][0];
+        return view('customers.address', compact('address', 'zipcode'));
     }
     /**
      * Display a listing of the resource.
@@ -74,7 +75,7 @@ class CustomerController extends Controller
         $customer->telephone_number = $request->telephone_number;
 
         $customer->save();
-        
+
         return redirect()->route('customers.index');
     }
 

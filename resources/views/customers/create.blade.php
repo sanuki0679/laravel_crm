@@ -12,10 +12,7 @@
 
             <button type="submit" class="btn btn-primary">検索</button>
         </div>
-
-        <a href="{{ route('customers.index') }}" class="btn">一覧画面</a>
     </form>
-
-
+    <a href="{{ route('customers.index') }}" class="btn">一覧画面</a>
 
 @endsection
