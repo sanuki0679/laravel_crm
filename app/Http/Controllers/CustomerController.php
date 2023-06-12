@@ -74,7 +74,7 @@ class CustomerController extends Controller
         $customer->telephone_number = $request->telephone_number;
 
         $customer->save();
-        var_dump($customer);
+        
         return redirect()->route('customers.index');
     }
 

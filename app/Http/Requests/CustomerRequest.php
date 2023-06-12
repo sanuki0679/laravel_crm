@@ -26,7 +26,7 @@ class CustomerRequest extends FormRequest
         return [
             'name' => 'required|string|max:20',
             'mail_address' => 'required|string|max:50',
-            'post_code' => 'required|string|max:10000000',
+            'post_code' => 'required|string|digits:7',
             'address' => 'required|string|max:100',
             'telephone_number' => 'required|string|max:20',
         ];

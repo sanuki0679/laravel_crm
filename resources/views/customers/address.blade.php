@@ -20,12 +20,11 @@
     
     <form action="{{ route('customers.store') }}" method="post">
     @csrf
-        <ul>
-            @foreach ($result['results'] as $address)
-                @foreach ($result['results'] as $zipcode)
-                @endforeach
-            @endforeach
-        </ul>
+        
+        @php
+            $address = $result['results'][0];
+            $zipcode = $result['results'][0];
+        @endphp
         <div>
             <label for="name">顧客名:</label>
             <input type="text" name="name" id="name" value="{{ old('name') }}">
